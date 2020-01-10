@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %} <!--These are called template tags-->
+    <header class="banner">
+        <h1 class="header-text">
+            Welcome 
+            {% if current_user.is_authenticated %}
+                {{current_user.username}}
+            {% else %}
+            Friend
+            {% endif %}
+            to the world of a Programmer...
+        </h1>
+    </header>
+
+    <!--Displaying posts from Database-->
+
+    {% if current_user.is_authenticated %}
+        {% if post %}
+            {% for post in post %}
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+            {% endfor %}
+        {% else %}
+            <h2>You haven't made any posts.</h2>
+        {% endif %}
+        
+    {% else %}
+        <h1>You're not allowed until you login!</h1>
+    {% endif %}
+
+{% endblock content %}
+<!--{ % endblock content %} will throw an error-->

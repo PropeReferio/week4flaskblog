@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %} <!--These are called template tags-->
+    
+    <h1>Signup for our Blog Newsletter</h1>
+
+    <h2>Signup</h2>
+    <form action="" method="POST">
+        {{ signupform.hidden_tag() }}
+        <div>
+            <fieldset>
+                {{ signupform.username.label }}
+                {{ signupform.username(class="form-control", placeholder="Enter Your User Name") }}
+            </fieldset>
+            <fieldset>
+                {{ signupform.email.label }}
+                {{ signupform.email(class="form-control") }}
+            </fieldset>
+            <fieldset>
+                {{ signupform.password.label }}
+                {{ signupform.password(class="form-control") }}
+            </fieldset>
+            <fieldset>
+                {{ signupform.confirm_pass.label }}
+                {{ signupform.confirm_pass(class="form-control") }}
+            </fieldset>
+            {{ signupform.submit(class="button") }}
+        </div>
+    </form>
+{% endblock content %}
+<!--{ % endblock content %} will throw an error-->

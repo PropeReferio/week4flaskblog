@@ -1,0 +1,22 @@
+{% extends 'base.html' %} <!--This method of extending is actually
+more efficient for runtime than standard practice-->
+
+{% block content %}
+
+<h1>Create a Post!</h1>
+
+<div>
+    <form action="" method="POST">
+        <fieldset>
+            {{ postform.title.label }}
+            {{ postform.title(class="form-control") }}
+        </fieldset>
+        <fieldset>
+            {{ postform.content.label }}
+            {{ postform.content(class="form-control blog-text") }}
+        </fieldset>
+        {{ postform.submit(class="button") }}
+    </form>
+</div>
+
+{% endblock content %}
